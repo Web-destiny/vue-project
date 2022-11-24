@@ -3,6 +3,9 @@
 
     <h1 v-colored:background.font="'green'">{{ title }}</h1>
     <h1 v-colored:color.delay="'blue'">{{ title }}</h1>
+    <h2>{{ title | lowercase }}</h2>
+    <h2>{{ title | uppercase }}</h2>
+    <h2>{{ title | uppercase | lowercase }}</h2>
 
     <h3 v-font>Local font directive</h3>
 
@@ -23,6 +26,11 @@ export default {
       bind(el, bindings, vnode){
         el.style.fontSize = '40px'
       }
+    }
+  },
+  filters: {
+    lowercase(value){
+      return value.toLowerCase()
     }
   }
 }
