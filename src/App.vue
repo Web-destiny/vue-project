@@ -1,45 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1 v-colored v-if="visible">Parent Car Name: {{ carName }}</h1>
-    <button @click="visible = !visible">Toggle</button>
-    <button @click="carName = 'New title'">Change title</button>
-    <h2>Пробег авто: {{ milage }}</h2>
-    <app-counter></app-counter>
-    <app-car
-      :carName="carName"
-      :carYear="carYear"
-      :changeFromParent="changeOnAudi"
-      @changedCarName="carName = $event"
-    >
-      <h2 slot="carMilage">Пробег авто: {{ milage }}</h2>
-    </app-car>
+
+    <h1 v-colored>{{ title }}</h1>
+
   </div>
 </template>
 
 <script>
 
-import Car from './Car.vue'
-import Counter from './Counter.vue'
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      carYear: 1994,
-      carName: 'MARK2',
-      milage: 10000,
-      visible: true,
+      title: 'Hello, i am Vue!'
     }
   },
   components: {
-    appCar: Car,
-    appCounter: Counter
+
   },
   methods: {
-    changeOnAudi(){
-      return this.carName = 'Audi'
-    }
+
   }
 }
 </script>
