@@ -2,13 +2,16 @@
   <div id="app">
     <img src="./assets/logo.png">
     <h1>Parent Car Name: {{ carName }}</h1>
+    <h2>Пробег авто: {{ milage }}</h2>
     <app-counter></app-counter>
     <app-car
       :carName="carName"
       :carYear="carYear"
       :changeFromParent="changeOnAudi"
       @changedCarName="carName = $event"
-    ></app-car>
+    >
+      <h2 slot="carMilage">Пробег авто: {{ milage }}</h2>
+    </app-car>
   </div>
 </template>
 
@@ -23,6 +26,7 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       carYear: 1994,
       carName: 'MARK2',
+      milage: 10000,
     }
   },
   components: {

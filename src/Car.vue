@@ -1,5 +1,6 @@
 <template>
  <div class="car-box">
+   <slot name="carMilage"></slot>
    <h3>Car name: {{ carName }} / {{ reverseNameCar }}</h3>
    <p>Car year: {{ carYear }}</p>
    <button style="margin-bottom: 20px" @click="changeCarName">Сменить модель</button>
