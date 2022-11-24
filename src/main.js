@@ -4,8 +4,6 @@ import ColorDirective from './color'
 
 Vue.directive('colored', ColorDirective)
 
-
-
 new Vue({
   el: '#app',
   render: h => h(App)

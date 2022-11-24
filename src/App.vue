@@ -4,6 +4,8 @@
     <h1 v-colored:background.font="'green'">{{ title }}</h1>
     <h1 v-colored:color.delay="'blue'">{{ title }}</h1>
 
+    <h3 v-font>Local font directive</h3>
+
   </div>
 </template>
 
@@ -16,11 +18,12 @@ export default {
       title: 'Hello, i am Vue!'
     }
   },
-  components: {
-
-  },
-  methods: {
-
+  directives: {
+    font: {
+      bind(el, bindings, vnode){
+        el.style.fontSize = '40px'
+      }
+    }
   }
 }
 </script>
