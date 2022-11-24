@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <h1>Parent Car Name: {{ carName }}</h1>
+    <h1 v-colored v-if="visible">Parent Car Name: {{ carName }}</h1>
+    <button @click="visible = !visible">Toggle</button>
+    <button @click="carName = 'New title'">Change title</button>
     <h2>Пробег авто: {{ milage }}</h2>
     <app-counter></app-counter>
     <app-car
@@ -27,6 +29,7 @@ export default {
       carYear: 1994,
       carName: 'MARK2',
       milage: 10000,
+      visible: true,
     }
   },
   components: {
