@@ -1,8 +1,8 @@
 <template>
   <div id="app">
 
-    <h1 v-colored:background="'green'">{{ title }}</h1>
-    <h1 v-colored:color="'blue'">{{ title }}</h1>
+    <h1 v-colored:background.font="'green'">{{ title }}</h1>
+    <h1 v-colored:color.delay="'blue'">{{ title }}</h1>
 
   </div>
 </template>
