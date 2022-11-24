@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <h1 v-colored>{{ title }}</h1>
+    <h1 v-colored="['green','red']">{{ title }}</h1>
 
   </div>
 </template>

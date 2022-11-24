@@ -1,7 +1,7 @@
 export default {
   bind(el, bindings, vnode){
-    el.style.color = 'green'
-    console.log('bind')
+    // el.style.color = 'green'
+    el.style.color = bindings.value[0]
   },
 
 }
