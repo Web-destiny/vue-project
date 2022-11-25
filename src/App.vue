@@ -1,13 +1,11 @@
 <template>
   <div id="app">
 
-    <h1 v-colored:background.font="'green'">{{ title }}</h1>
-    <h1 v-colored:color.delay="'blue'">{{ title }}</h1>
-    <h2>{{ title | lowercase }}</h2>
-    <h2>{{ title | uppercase }}</h2>
-    <h2>{{ title | uppercase | lowercase }}</h2>
-
-    <h3 v-font>Local font directive</h3>
+    <h1>Поиск по списку:</h1>
+    <input type="text" v-model="search">
+    <ul>
+      <li v-for="name of sortedNames">{{ name }}</li>
+    </ul>
 
   </div>
 </template>
@@ -18,8 +16,17 @@ export default {
   name: 'app',
   data () {
     return {
-      title: 'Hello, i am Vue!'
+      title: 'Hello, i am Vue!',
+      names: ['Миша', 'Даша', 'Иван', 'Данил', 'Николай', 'Наталия'],
+      search: ''
     }
+  },
+  computed: {
+      sortedNames(){
+        return this.names.filter((name) => {
+          return name.indexOf(this.search) != -1
+        })
+      }
   },
   directives: {
     font: {
