@@ -24,8 +24,8 @@ export default {
   computed: {
     sortedBeers(){
       return this.beers.filter((beer) => {
-        let nameBeer = beer.name
-        return nameBeer.indexOf(this.search) != -1
+        let nameBeer = beer.name.toLowerCase()
+        return nameBeer.indexOf(this.search.toLowerCase()) !== -1
       })
     }
   },
