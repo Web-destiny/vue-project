@@ -21,6 +21,7 @@
         <img :src="beer.image" alt="Картинка ушла нахуй))">
       </div>
     </div>
+    <app-list></app-list>
 
   </div>
 </template>
