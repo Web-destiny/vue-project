@@ -1,8 +1,13 @@
 import Vue from 'vue'
-import Vuelidate from 'vuelidate'
 import App from './App.vue'
+import ColorDirective from './color'
+import List from './List'
 
-Vue.use(Vuelidate)
+Vue.component('app-list', List )
+
+Vue.directive('colored', ColorDirective)
+
+Vue.filter('uppercase', value => value.toUpperCase())
 
 new Vue({
   el: '#app',
