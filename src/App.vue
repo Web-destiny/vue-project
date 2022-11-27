@@ -6,9 +6,13 @@
     </div>
     <div class="beerBox">
       <div v-for="beer of sortedBeers" class="beerCard">
-        <div style="display: flex;flex-direction: column;gap: 3px;height: 100px;">
+        <div style="display: flex;flex-direction: column;gap: 3px;height: 140px;">
           <div>Бренд пива:</div>
           <div style="font-size: 18px;font-weight: bold;color: #a51409;">{{ beer.name }}</div>
+          <div style="display: flex;align-items: flex-end;justify-content: space-between;">
+            <div>Рейтинг:</div>
+            <div style="font-size: 25px;color: rgb(255 229 0);font-weight: bold;">{{ Math.round(beer.rating.average * 100)/100 }}</div>
+          </div>
           <div style="display: flex;align-items: flex-end;justify-content: space-between;">
             <div>Цена:</div>
             <div style="font-size: 25px;color: #e81000;font-weight: bold;">{{ beer.price }}</div>
@@ -103,13 +107,15 @@ a {
   flex-direction: column;
   gap: 2px;
   border: 1px solid #adb9ff;
-  border-radius: 8px;
+  border-radius: 20px;
   padding: 20px;
   width: 235px;
-  height: 240px;
+  height: 280px;
   background: linear-gradient(to top left,#0030ff, #a7b7ff, #bcc5ff);
   box-shadow: 4px 2px 8px;
   cursor: pointer;
+  font-family: monospace;
+  font-size: 16px;
 }
 
 .beerCard img{
@@ -129,6 +135,7 @@ a {
 }
 
 .search-input {
+  border-radius: 20px;
   width: 300px;
   height: 30px;
   padding: 5px 15px;
