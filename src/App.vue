@@ -17,6 +17,14 @@
               <a class="nav-link">Cars</a>
             </router-link>
 
+            <router-link tag="li" exact active-class="active" to="/car/4">
+              <a class="nav-link">Cars 4</a>
+            </router-link>
+            <router-link tag="li" active-class="active" to="/car/5">
+              <a class="nav-link">Cars 5</a>
+            </router-link>
+
+
           </ul>
         </div>
       </div>
