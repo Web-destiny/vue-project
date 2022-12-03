@@ -18,10 +18,10 @@
             </router-link>
 
             <router-link tag="li" exact active-class="active" to="/car/4">
-              <a class="nav-link">Cars 4</a>
+              <a class="nav-link">Car 4</a>
             </router-link>
             <router-link tag="li" active-class="active" to="/car/5">
-              <a class="nav-link">Cars 5</a>
+              <a class="nav-link">Car 5</a>
             </router-link>
 
 
