@@ -2,6 +2,7 @@ import VueRouter from 'vue-router'
 import Home from './pages/Home'
 import Cars from './pages/Cars'
 import Car from './pages/Car'
+import ErrorCmp from './pages/Error'
 import CarFull from './pages/CarFull'
 
 export default new VueRouter({
@@ -12,7 +13,8 @@ export default new VueRouter({
     },
     {
       path: '/cars', // localhost:8080
-      component: Cars
+      component: Cars,
+      name: 'cars'
     },
     {
       path: '/car/:id',
@@ -25,6 +27,16 @@ export default new VueRouter({
         }
       ]
     },
+    {
+      path: '/none',
+      redirect: {
+        name: 'cars'
+      }
+    },
+    {
+      path: '*',
+      component: ErrorCmp
+    }
 
   ],
   mode: 'history',
