@@ -41,6 +41,13 @@ export default {
     $route( toR, fromR ){
       this.id = toR.params['id']
     }
+  },
+  beforeRouteLeave(to, from, next){
+    if(window.confirm('Вы уверены, что хотите покинуть страницу?')){
+      next()
+    }else{
+      next(false)
+    }
   }
 }
 </script>
