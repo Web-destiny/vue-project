@@ -30,27 +30,27 @@ export default {
   data () {
     return {
       carName: '',
-      carYear: 2018,
+      carYear: '',
       cars: [],
+      resource: null
     }
   },
   methods: {
     createCar(){
-      const cars = {
+      const car = {
         name: this.carName,
         year: this.carYear,
       }
-      this.$http.post('http://localhost:3000/cars', cars )
+      this.resource.save( {}, car )
     },
     loadCars(){
-      this.$http.get('http://localhost:3000/cars')
-        .then(response => {
-          return response.json()
-        })
-        .then( cars => {
-          this.cars = cars
-        })
+      this.resource.get()
+        .then(response => response.json())
+        .then(cars => this.cars = cars)
     }
+  },
+  created() {
+    this.resource = this.$resource( 'http://localhost:3000/cars' )
   }
 }
 </script>
