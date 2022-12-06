@@ -1,6 +1,26 @@
 <template>
-  <div class="container">
+  <div class="container pt-2">
+    <div class="form-group">
+      <label for="name">Car name</label>
+      <input id="name" class="form-control" type="text" v-model.trim="carName">
+    </div>
+    <div class="form-group">
+      <label for="year">Car year</label>
+      <input id="year" class="form-control" type="text" v-model.number="carYear">
+    </div>
 
+    <button class="btn btn-success mt-3" @click="createCar">Create car</button>
+    <button class="btn btn-primary mt-3" @click="loadCars">Load cars</button>
+
+    <div class="list-group mt-5">
+      <li
+        class="list-group-item"
+        v-for="car of cars"
+        :key="car.id"
+      >
+        <strong>{{ car.name }}</strong> - {{ car.year }}
+      </li>
+    </div>
   </div>
 </template>
 
@@ -9,15 +29,32 @@
 export default {
   data () {
     return {
-
+      carName: '',
+      carYear: 2018,
+      cars: [],
     }
   },
+  methods: {
+    createCar(){
+      const cars = {
+        name: this.carName,
+        year: this.carYear,
+      }
+      this.$http.post('http://localhost:3000/cars', cars )
+    },
+    loadCars(){
+      this.$http.get('http://localhost:3000/cars')
+        .then(response => {
+          return response.json()
+        })
+        .then( cars => {
+          this.cars = cars
+        })
+    }
+  }
 }
 </script>
 
 <style scoped>
- .container{
-   padding-top: 30px;
- }
 
 </style>
