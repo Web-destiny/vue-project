@@ -1,58 +1,60 @@
 <template>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav">
-<!--            <li class="nav-item">-->
-<!--              <router-link class="nav-link" exact aria-current="page" to="/">Home</router-link>-->
-<!--            </li>-->
-<!--            <li class="nav-item">-->
-<!--              <router-link class="nav-link" to="/cars">Cars</router-link>-->
-<!--            </li>-->
-            <router-link tag="li" exact active-class="active" to="/">
-              <a class="nav-link">Home</a>
-            </router-link>
-            <router-link tag="li" active-class="active" to="/cars">
-              <a class="nav-link">Cars</a>
-            </router-link>
+  <div class="container pt-2">
+    <div class="form-group">
+      <label for="name">Car name</label>
+      <input id="name" class="form-control" type="text" v-model.trim="carName">
+    </div>
+    <div class="form-group">
+      <label for="year">Car year</label>
+      <input id="year" class="form-control" type="text" v-model.number="carYear">
+    </div>
 
-            <router-link tag="li" exact active-class="active" to="/car/4">
-              <a class="nav-link">Car 4</a>
-            </router-link>
-            <router-link tag="li" active-class="active" to="/car/5">
-              <a class="nav-link">Car 5</a>
-            </router-link>
+    <button class="btn btn-success mt-3" @click="createCar">Create car</button>
+    <button class="btn btn-primary mt-3" @click="loadCars">Load cars</button>
 
-
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-
-    <router-view></router-view>
+    <div class="list-group mt-5">
+      <li
+        class="list-group-item"
+        v-for="car of cars"
+        :key="car.id"
+      >
+        <strong>{{ car.name }}</strong> - {{ car.year }}
+      </li>
+    </div>
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'app',
   data () {
     return {
-      title: 'Hello Vue',
+      carName: '',
+      carYear: 2018,
+      cars: [],
     }
   },
+  methods: {
+    createCar(){
+      const cars = {
+        name: this.carName,
+        year: this.carYear,
+      }
+      this.$http.post('http://localhost:3000/cars', cars )
+    },
+    loadCars(){
+      this.$http.get('http://localhost:3000/cars')
+        .then(response => {
+          return response.json()
+        })
+        .then( cars => {
+          this.cars = cars
+        })
+    }
+  }
 }
 </script>
 
 <style scoped>
- .container{
-   padding-top: 30px;
- }
- .active{
-    font-weight: 500;
- }
 
 </style>
