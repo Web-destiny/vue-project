@@ -1,14 +1,5 @@
 import Vue from 'vue'
-import VueResourсe from 'vue-resource'
 import App from './App.vue'
-
-Vue.use(VueResourсe)
-Vue.http.options.root = 'http://localhost:3000/'
-Vue.http.interceptors.push(request => {
-
-  request.headers.set('Authentification', 'UNIQUE TOKEN: ' + Math.random())
-
-})
 
 new Vue({
   el: '#app',
