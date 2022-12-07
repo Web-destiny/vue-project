@@ -1,10 +1,13 @@
 <template>
-  <div class="container pt-2">
-
+  <div class="container pt-5">
+    <app-counter></app-counter>
+    <app-actions></app-actions>
   </div>
 </template>
 
 <script>
+import Actions from "./Actions"
+import Counter from "./Counter"
 
 export default {
   data () {
@@ -12,6 +15,10 @@ export default {
 
     }
   },
+  components: {
+    appActions: Actions,
+    appCounter: Counter
+  }
 }
 </script>
 
