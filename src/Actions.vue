@@ -17,12 +17,11 @@
 </template>
 
 <script>
-import {EventEmitter} from "./main";
 
 export default {
   methods: {
     updateCounter(value){
-      EventEmitter.$emit('counterUpdated', value)
+      this.$store.state.counter += value
     }
   }
 }
