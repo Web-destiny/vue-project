@@ -8,8 +8,16 @@ export default new Vuex.Store({
     counter: 0
   },
   mutations: {
+    // payload - данные с которыми нам предстоит работать
     changeCounter( state, payload ){
       state.counter += payload
+    }
+  },
+  actions: {
+    asyncChangeCounter({commit}, payload){
+      setTimeout(() => {
+        commit('changeCounter', payload.counterValue)
+      }, payload.timeoutDelay)
     }
   },
   getters: {
