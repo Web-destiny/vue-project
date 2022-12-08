@@ -24,7 +24,7 @@ export default {
       // this.$store.commit('changeCounter', value)
       this.$store.dispatch('asyncChangeCounter', {
         counterValue: value,
-        timeoutDelay: 200
+        timeoutDelay: 0
       })
     }
   }

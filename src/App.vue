@@ -1,5 +1,7 @@
 <template>
   <div class="container pt-5">
+    <h1>{{ title }}</h1>
+    <hr>
     <app-counter></app-counter>
     <app-second-counter></app-second-counter>
     <hr>
@@ -17,6 +19,11 @@ export default {
     appActions: Actions,
     appCounter: Counter,
     appSecondCounter: SecondCounter
+  },
+  computed: {
+    title(){
+      return this.$store.getters.title
+    }
   }
 }
 </script>

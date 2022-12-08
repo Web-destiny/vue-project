@@ -1,28 +1,25 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import counter from './counter'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  modules: {
+    counter
+  },
   state: {
-    counter: 0
+    title: 'Hello from store'
   },
   mutations: {
-    // payload - данные с которыми нам предстоит работать
-    changeCounter( state, payload ){
-      state.counter += payload
-    }
+
   },
   actions: {
-    asyncChangeCounter({commit}, payload){
-      setTimeout(() => {
-        commit('changeCounter', payload.counterValue)
-      }, payload.timeoutDelay)
-    }
+
   },
   getters: {
-    computedCounter( state ){
-      return state.counter * ( 6 * 5.55 - 1)
+    title( state ){
+      return state.title + '!!!'
     }
   }
 })
