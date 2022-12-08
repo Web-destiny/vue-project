@@ -21,7 +21,7 @@
 export default {
   methods: {
     updateCounter(value){
-      this.$store.state.counter += value
+      this.$store.commit('changeCounter', value)
     }
   }
 }
