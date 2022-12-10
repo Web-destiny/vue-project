@@ -1,6 +1,6 @@
-# vue-project
+# vue-project BEER SEARCH
 
-> A Vue.js project
+>  https://web-destiny.github.io/vue-project/
 
 ## Build Setup
 
